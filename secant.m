@@ -4,9 +4,12 @@ function [p] = secant (p0, p1, TOL, N, f)
   q0 = f(p0);
   q1 = f(p1);
 
-  printf ("\n\n│ %-15.15s │ %-15.15s │ %-15.15s │ %-15.15s │ %-15.15s │ %-15.15s │ %-15.15s │\n",
+  printf ('\n\nSECANT METHOD\n');
+  printf ("│ %-15.15s │ %-15.15s │ %-15.15s │ %-15.15s │ %-15.15s │ %-15.15s │ %-15.15s │\n",
           "n", "p_{n-1}", "pn", "f(p_{n-1})", "f(pn)", "|p_{n-1} - pn|", "p_{n+1}"
   );
+  printf ("├─────────────────┼─────────────────┼─────────────────");
+  printf ("┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤\n");
 
   while (i <= N)
     p = p1 - q1 * (p1 - p0)/(q1 - q0);
@@ -31,5 +34,5 @@ function [p] = secant (p0, p1, TOL, N, f)
 
   endwhile
 
-  error ('Method failed after N iterations, N =', N);
+  error ('Method failed after N = %d iterations', N);
 endfunction

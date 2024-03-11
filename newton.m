@@ -4,6 +4,8 @@ function [p] = newton (p0, TOL, N, F, f)
   printf ("\n\nNEWTON'S METHOD\n");
   printf ("│ %-15.15s │ %-15.15s │ %-15.15s │ %-15.15s │ %-15.15s │ %-15.15s │\n",
   "k", "pk", "f(pk)", "f'(pk)", " |p_{k+1} - pk| ", "p_{k+1}");
+  printf ("├─────────────────┼─────────────────┼─────────────────");
+  printf ("┼─────────────────┼─────────────────┼─────────────────┤\n");
 
   while (i <= N)
     p = p0 - (F(p0) / f(p0));
@@ -23,5 +25,5 @@ function [p] = newton (p0, TOL, N, F, f)
     p0 = p;
   endwhile
 
-  error ('Method failed after N iterations, N =', N);
+  error ('Method failed after N = %d iterations', N);
 endfunction
